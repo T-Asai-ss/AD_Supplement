@@ -38,7 +38,6 @@ def objective(trial):
         'bagging_temperature' :trial.suggest_loguniform('bagging_temperature', 0.01, 10), 
         'od_type': trial.suggest_categorical('od_type', ['IncToDec', 'Iter']),
         }
-    
     model = CatBoostClassifier(**params, num_boost_round = 1000, early_stopping_rounds= 300)
     model.fit(train_pool,eval_set=validate_pool)
     preds = model.predict(ivx)
@@ -55,7 +54,6 @@ params={
         'learning_rate': 0.24457077629500582,
         'bagging_temperature': 0.1883546725558595,
         'od_type': 'IncToDec'}
-
 model = CatBoostClassifier(**params, num_boost_round = 1000, early_stopping_rounds= 300)
 model.fit(train_pool,eval_set=validate_pool, plot=True)
 y_train_p = model.predict(tx)
