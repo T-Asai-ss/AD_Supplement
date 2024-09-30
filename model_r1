@@ -73,6 +73,7 @@ print('RMSE  train: %.3f,  internal validation: %.3f, external validation: %.3f'
         np.sqrt(mean_squared_error(ty, y_train_p)),
         np.sqrt(mean_squared_error(ivy, y_iv_p)),
         np.sqrt(mean_squared_error(evy, y_ev_p)))
+
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 ax.scatter(ty, y_train_p, s=30, marker='o', alpha=1, c='w', edgecolors='k', linewidths=1.5)
