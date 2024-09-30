@@ -86,9 +86,6 @@ model.fit(train_pool,eval_set=validate_pool, plot=True)
 y_train_p = model.predict(tx)
 y_iv_p = model.predict(ivx)
 y_ev_p = model.predict(evx)
-
-# ## plot
-# In[6]:
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
 print('R^2  train: %.3f,  internal validation: %.3f, external validation: %.3f' % (
@@ -99,7 +96,9 @@ print('RMSE  train: %.3f,  internal validation: %.3f, external validation: %.3f'
         np.sqrt(mean_squared_error(ty, y_train_p)),
         np.sqrt(mean_squared_error(ivy, y_iv_p)),
         np.sqrt(mean_squared_error(evy, y_ev_p))))
-        
+
+# ## plot
+# In[6]:        
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 ax.scatter(ty, y_train_p, s=30, marker='o', alpha=1, c='w', edgecolors='k', linewidths=1.5)
