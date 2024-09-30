@@ -59,13 +59,13 @@ model.fit(train_pool,eval_set=validate_pool, plot=True)
 y_train_p = model.predict(tx)
 y_iv_p = model.predict(ivx)
 y_ev_p = model.predict(evx)
-
-# ## output data
-# In[5]:
 from sklearn.metrics import confusion_matrix
 Acc_t = confusion_matrix(ty, y_train_p)
 Acc_i = confusion_matrix(ivy, y_iv_p)
 Acc_e = confusion_matrix(evy, y_ev_p)
+
+# ## output data
+# In[5]:
 imp = model.feature_importances_
 imps = pd.DataFrame(imp)
 imps.to_csv("C3imp.csv", encoding="shift_jis")
